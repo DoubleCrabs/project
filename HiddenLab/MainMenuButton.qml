@@ -5,10 +5,9 @@ Item {
     width: 300
     height: 50
     property string text: ""
-
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: parent.focus ? "green" : "white"
         radius: 10
     }
     Text {
@@ -17,6 +16,5 @@ Item {
         anchors.centerIn: parent
         font.pointSize: 20
         color: "black"
-
     }
 }
