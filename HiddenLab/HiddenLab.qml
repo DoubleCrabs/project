@@ -26,7 +26,50 @@ Window {
         }
 
         MainMenu {
+            id: menu
             anchors.centerIn: parent
+            onGameStarted: parent.state = "gameplay"
         }
+
+        Gameplay {
+            id: gameplay
+            onGameStopped: parent.state = "menu"
+        }
+
+        states: [
+            State {
+                name: "menu"
+                PropertyChanges {
+                    target: menu
+                    visible: true
+                 }
+                PropertyChanges {
+                    target: gameplay
+                    visible: false
+                }
+            },
+            State {
+                name: "gameplay"
+                PropertyChanges {
+                    target: menu
+                    visible: false
+                }
+//                PropertyChanges {
+//                    target: start
+//                    focus: false
+//                }
+                PropertyChanges {
+                    target: gameplay
+                    visible: true
+//                    focus: true
+                }
+//                PropertyChanges {
+//                    target: returnToMainMenu
+//                    focus: true
+//                }
+            }
+        ]
+
+        state: "menu"
     }
 }

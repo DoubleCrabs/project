@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.0
 
 Item {
     id: menu
+    signal gameStarted
 
     ColumnLayout {
         anchors.centerIn: parent
@@ -12,8 +13,14 @@ Item {
             id: start
             text: "Новая игра"
             focus: true
-            KeyNavigation.down : load
-            Keys.onReturnPressed: console.log("!!!")
+            KeyNavigation.down: load
+            Keys.onReturnPressed: {
+                menu.gameStarted()
+            }
+
+            onVisibleChanged: {
+                if (visible) focus = true
+            }
         }
 
         MainMenuButton {
