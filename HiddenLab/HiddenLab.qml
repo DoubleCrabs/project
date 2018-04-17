@@ -33,6 +33,7 @@ Window {
 
         Gameplay {
             id: gameplay
+            anchors.centerIn: parent
             onGameStopped: parent.state = "menu"
         }
 
@@ -54,19 +55,12 @@ Window {
                     target: menu
                     visible: false
                 }
-//                PropertyChanges {
-//                    target: start
-//                    focus: false
-//                }
+
                 PropertyChanges {
                     target: gameplay
                     visible: true
-//                    focus: true
                 }
-//                PropertyChanges {
-//                    target: returnToMainMenu
-//                    focus: true
-//                }
+
             }
         ]
 
